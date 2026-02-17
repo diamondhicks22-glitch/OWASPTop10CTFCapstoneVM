@@ -19,7 +19,7 @@ include 'connect.php';
 	<main>
 	<h1>OWASP-Inspired CTF Site</h1>
 	<p>All links are currently non-functioning while assets are being developed</p>
-	<a>Introduction</a><br>
+	<a href='base-site.php'>Introduction</a><br>
 	<a>Level1TITLE</a><br>
 	<a>Level2TITLE</a><br>
 	<a>Level3TITLE</a><br>
