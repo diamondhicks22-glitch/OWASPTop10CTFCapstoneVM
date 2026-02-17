@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include '.connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,3 +30,5 @@ include 'connect.php';
 	<a>Level8TITLE</a><br>
 	<a>Level9TITLE</a><br>
 	<a>Level10TITLE</a><br>
+
+</body>

@@ -2,4 +2,4 @@ git-push.sh
 git-pull.sh
 .git_token
 .db_connect.php
-connect.php
+.connect.php
