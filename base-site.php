@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include '.connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +14,11 @@ include 'connect.php';
 <body>
 	<header>
 		<!--ADD NAV HERE-->
-		<form>
+		<form method="POST" action="flag_check.php">
+			<input type="hidden" name="level_id" value="0">
+			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
 			<input type="text" id="flag" name="flag" value="Enter Flag">
-			<input type="submit" value="Submit">
+			<button type="submit">Submit Flag</button>
 		</form> 
 	</header>
 
