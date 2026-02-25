@@ -35,31 +35,12 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 		<p>NOTICE: Due to maintenance, we are currently not accepting new clients. We hope to be able to take more very soon!</p>
 		
 		<div class="log-in_box">
-		<?php
-					$username = $_POST['username'] ?? '';
-					if ($username === 'admin') {
-						echo "<div class='error'>";
-						echo "<p>ERROR: Incorrect password for username " . $username . "</p><br>";
-						echo "<p>Code: B8dl0g</p>";
-						echo "</div>";
-					}
-					elseif (empty($username)) {
-						echo "<div class='error'>";
-						echo "<p>Please enter a value</p>";
-						echo "</div>";
-					}
-					else {
-						echo "<div class='error'>";
-						echo "<p>ERROR: Username" . $username . " found.";
-						echo "</div>";
-					}
-				?>
-			<form method="POST" action="level1.php">
+			<form method="POST" action="error.php">
 				<p>Username</p><br>
-				<input type="text" id="username">
+				<input type="text" name="username">
 				<br>
 				<p>Password</p><br>
-				<input type="text" id="password">
+				<input type="text" name="password">
 				<br>
 				<button type="submit">Log in</button>
 			</form>
