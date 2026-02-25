@@ -52,7 +52,7 @@ require_once __DIR__ . '/secure_assets/.connect.php';
 	<a>Level9TITLE</a><br>
 	<a>Level10TITLE</a><br>
 
-	<form method="POST" action="reset_current.php">
+	<form method="POST" action="/landing_page/reset_current.php">
 	<button type="submit">Reset Progress</button>
 	</form>
 </body>

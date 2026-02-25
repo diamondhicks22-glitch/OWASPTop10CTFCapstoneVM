@@ -1,10 +1,10 @@
 <?php
-include ".connect.php";
+require_once __DIR__ . '/../secure_assets/.connect.php';
 
 $query = $connection->prepare("UPDATE 2025_levels SET completed = FALSE");
 $query->execute();
 
-$page = "index.php";
+$page = "/index.php";
 header("Location: $page");
 exit;
 ?>
