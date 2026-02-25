@@ -1,14 +1,16 @@
 <?php
-include ".connect.php";
+require_once __DIR__ . "/.connect.php";
 
 
 $level = isset($_POST['level_id']) ? intval($_POST['level_id']) : -1;
 $flag = isset($_POST['flag']) ? trim($_POST['flag']) : '';
-$og_page = $_POST['level_page'] ?? 'index.php';
+$file_loc = $_POST['level_folder'] ?? '/../index.php';
+$back = $_POST['level_page'];
 $education_page = "lesson_" . $level . ".php";
 
 if ($level <= -1 || empty($flag)) {
-	die("Invalid Submission");
+	header("Location: $back");
+	exit;
 }
 
 $query = $connection->prepare("SELECT flag FROM level_archive WHERE ID = ?");
@@ -27,11 +29,17 @@ if ($flag === $correct) {
 	$update_query = $connection->prepare("UPDATE 2025_levels SET completed = TRUE WHERE ID = ?");
 	$update_query->bind_param("i", $level);
 	$update_query->execute();
-	header("Location: $education_page");
+	header("Location: /../" . $file_loc . "/" . $education_page . "");
 	exit;
 }
 else {
-	header("Location: $og_page");
+	if ($file_loc === '/../index.php') {
+	header("Location: $file_loc");
 	exit;
+	}
+	else{
+		header("Location: $back");
+		exit;
+	}
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-include '.connect.php';
+require_once __DIR__ . '/secure_assets/.connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include '.connect.php';
 	<meta charset="UTF-8">
 	<title>OWASP-Inspired CTF Site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="sitecss.css">
+	<link rel="stylesheet" href="/secure_assets/sitecss.css">
 </head>
 
 <body>
