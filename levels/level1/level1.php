@@ -34,8 +34,25 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 		<p>To access our services, please log-in below.</p>
 		<p>NOTICE: Due to maintenance, we are currently not accepting new clients. We hope to be able to take more very soon!</p>
 		
+			<?php
+				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+					$username = trim($_POST['username'] ?? '');
+					$flag_found = '';
+					if ($username === 'admin') {
+						$errormessage = "<p>ERROR: Incorrect password for username " . $username . "</p><br>";
+						$flag_found = "<p>Code: B8dl0g</p>";
+					}
+					elseif (empty($username)) {
+						$errormessage = "<p>Please enter a value</p>";
+					}
+					else {
+						$errormessage = "<p>ERROR: Username " . $username . "not found.";
+					}
+				}
+			?>
+
 		<div class="log-in_box">
-			<form method="POST" action="error.php">
+			<form method="POST" action="level1.php">
 				<p>Username</p><br>
 				<input type="text" name="username">
 				<br>
@@ -44,4 +61,12 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 				<br>
 				<button type="submit">Log in</button>
 			</form>
+			<?php
+				echo "<div class = 'error'>";
+				echo $errormessage;
+				if (!empty($flag_found)) {
+					echo $flag_found;
+				}
+				echo "</div>";
+			?>
 		</div>

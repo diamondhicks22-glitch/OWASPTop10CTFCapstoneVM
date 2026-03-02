@@ -41,7 +41,6 @@ require_once __DIR__ . '/secure_assets/.connect.php';
 	
 	</div>
 	<br><p> Still being developed </p>
-	<a>Level1TITLE</a><br>
 	<a>Level2TITLE</a><br>
 	<a>Level3TITLE</a><br>
 	<a>Level4TITLE</a><br>
