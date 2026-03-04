@@ -14,7 +14,7 @@ require_once __DIR__ . '/secure_assets/.connect.php';
 <body>
 	<header>
 		<h1>OWASP-Inspired CTF Site</h1>
-		<p>All links are currently non-functioning while assets are being developed</p>
+		<p>DEMO STATE | THERE MAY BE BUGS</p>
 
 		<!--ADD NAV HERE-->
 	</header>
@@ -40,8 +40,7 @@ require_once __DIR__ . '/secure_assets/.connect.php';
 ?>
 	
 	</div>
-	<br><p> Still being developed </p>
-	<a>Level5TITLE</a><br>
+	<br><p> Coming Soon </p>
 	<a>Level6TITLE</a><br>
 	<a>Level7TITLE</a><br>
 	<a>Level8TITLE</a><br>
