@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/secure_assets/.connect.php';
+session_start();
+$_SESSION['landing_transition'] = true;
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +14,9 @@ require_once __DIR__ . '/secure_assets/.connect.php';
 </head>
 
 <body>
-	<header>
-		<h1>OWASP-Inspired CTF Site</h1>
-		<p>DEMO STATE | THERE MAY BE BUGS</p>
+	<header class="site-header">
+		<h1 class="site-title">OWASP-Inspired CTF Site</h1>
+		<p class="warning">DEMO STATE | THERE MAY BE BUGS</p>
 
 		<!--ADD NAV HERE-->
 	</header>
@@ -22,15 +24,31 @@ require_once __DIR__ . '/secure_assets/.connect.php';
 	<main>
 	<div class="levels">
 	<?php
-	$query = $connection->prepare("SELECT completed, title, location  FROM 2025_levels");
+	$query = $connection->prepare("SELECT ID, completed, title, location  FROM 2025_levels");
 	$query->execute();
 	$result = $query->get_result();
 	while ($row = $result->fetch_assoc()) {
 		if ($row['completed']) {
+			if ($row['ID'] === 0) {
+				echo "<div class= 'levelblock intro completed'>";
+			}
+			elseif ($row['ID'] === 10) {
+				echo "<div class= 'levelblock final completed'>";
+			}
+			else{
 			echo "<div class='levelblock completed'>";
+			}
 		}
 		else {
-			echo "<div class='levelblock'>";
+			if ($row['ID'] === 0) {
+				echo "<div class= 'levelblock intro'>";
+			}
+			elseif ($row['ID'] === 10) {
+				echo "<div class= 'levelblock final'>";
+			}
+			else {
+				echo "<div class='levelblock'>";
+			}
 		}
 		echo "<h3>";
 		echo "<a href=" . htmlspecialchars($row['location']) . ">" . htmlspecialchars($row['title']) . "</a>";

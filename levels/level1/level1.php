@@ -1,5 +1,10 @@
 <?php
 require_once __DIR__ . '/../../secure_assets/.connect.php';
+session_start();
+if (!isset($_SESSION['landing_transition'])) {
+	header("Location: ../../index.php");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
