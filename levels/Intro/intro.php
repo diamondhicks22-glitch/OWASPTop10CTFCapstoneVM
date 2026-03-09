@@ -9,22 +9,22 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 	<title>OWASP-Inspired CTF Site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/../../secure_assets/sitecss.css">
+	<link rel="icon" href="/image_assets/Logos/WAVLCapstoneBlackIcon.svg" sizes="32x32">
 </head>
 
 <body>
-	<header>
-		<!--ADD NAV HERE-->
+	<header class= "company-header">
+		<span class="fake-company">Securissima Company</span>
 		<form method="POST" action="/../../secure_assets/flag_check.php">
 			<input type="hidden" name="level_id" value="0">
 			<input type="hidden" name= "level_folder" value= "levels/Intro">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
 			<input type="text" id="flag" name="flag" value="Enter Flag">
-			<button type="submit">Submit Flag</button>
+			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
 
 	<main>
-		<h1>Securissima Company</h1>
 
 		<p>Welcome to the Web Application Vunerabilities Capture-the-Flag inspired by the Open Worldwide Application Security Project (OWASP).
 		This site and subsquent Virtual Machine (VM) focuses on the <a href='https://owasp.org/Top10/2025/' target='_blank' rel='noopener noreferrer'> 
@@ -53,3 +53,5 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 
 		<br>
 		<p>G1HF_U$3R</p>
+
+</main>

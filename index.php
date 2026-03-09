@@ -8,16 +8,19 @@ $_SESSION['landing_transition'] = true;
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>OWASP-Inspired CTF Site</title>
+	<title>Web Application Vulnerability Lab</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/secure_assets/sitecss.css">
+	<link rel="icon" href="/image_assets/Logos/WAVLCapstoneBlackIcon.svg" sizes="32x32">
 </head>
 
 <body>
 	<header class="site-header">
-		<h1 class="site-title">OWASP-Inspired CTF Site</h1>
-		<p class="warning">DEMO STATE | THERE MAY BE BUGS</p>
-
+		<div class ="header-content">
+			<img src="/image_assets/Logos/WAVLCapstoneWhiteHeader.svg" alt="Web Application Vulnerability Lab" class="logo header">
+			<p class="warning">DEMO STATE | THERE MAY BE BUGS</p>
+		</div>
+		<div class="header-fade"></div>
 		<!--ADD NAV HERE-->
 	</header>
 
@@ -30,43 +33,53 @@ $_SESSION['landing_transition'] = true;
 	while ($row = $result->fetch_assoc()) {
 		if ($row['completed']) {
 			if ($row['ID'] === 0) {
-				echo "<div class= 'levelblock intro completed'>";
+				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock intro completed'>";
+				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+				echo "</a>";
+
 			}
 			elseif ($row['ID'] === 10) {
-				echo "<div class= 'levelblock final completed'>";
+				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock final completed'>";
+				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+				echo "</a>";
 			}
 			else{
-			echo "<div class='levelblock completed'>";
+				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock completed'>";
+				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+				echo "</a>";
 			}
 		}
 		else {
 			if ($row['ID'] === 0) {
-				echo "<div class= 'levelblock intro'>";
+				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock intro'>";
+				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+				echo "</a>";
 			}
 			elseif ($row['ID'] === 10) {
-				echo "<div class= 'levelblock final'>";
+				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock final'>";
+				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+				echo "</a>";
 			}
 			else {
-				echo "<div class='levelblock'>";
+				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock'>";
+				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+				echo "</a>";
 			}
 		}
-		echo "<h3>";
-		echo "<a href=" . htmlspecialchars($row['location']) . ">" . htmlspecialchars($row['title']) . "</a>";
-		echo "</h3>";
-		echo "</div>";
 	}
 ?>
-	
-	</div>
-	<br><p> Coming Soon </p>
-	<a>Level6TITLE</a><br>
-	<a>Level7TITLE</a><br>
-	<a>Level8TITLE</a><br>
-	<a>Level9TITLE</a><br>
-	<a>Level10TITLE</a><br>
-
+</div>
 	<form method="POST" action="/landing_page/reset_current.php">
-	<button type="submit">Reset Progress</button>
+	<button type="submit" class="button">Reset Progress</button>
 	</form>
+
+<div class="coming-soon">	
+	<br><h2> Coming Soon (Working Level Titles)</h2>
+	<p class="nondev-levels">I Have Authority</p>
+	<p class="nondev-levels">Plain and What-text?</p>
+	<p class="nondev-levels">Trusted Supply</p>
+	<p class="nondev-levels">Are You You?</p>
+	<p class="nondev-levels">Injection Headache</p>
+</div>
 </body>
 </html>
