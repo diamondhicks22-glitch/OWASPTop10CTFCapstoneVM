@@ -7,7 +7,7 @@
 
 html {
 	background:linear-gradient(to bottom, #C7B0D6,#F3EAFA);
-	height: 100%;
+	min-height: 100%;
 }
 
 
@@ -24,6 +24,7 @@ main {
 	color: #310A31;
 	font-weight: bold;
 	max-width: 900px;
+	text-align: justify;
 }
 
 main h1 {
@@ -38,8 +39,31 @@ main h2{
 }
 
 main a {
-	text-decoration: none;
-	color: #FFF5F5;
+	text-decoration: underline dotted;
+	color: #310A31;
+	transition: all 0.2s ease;
+}
+
+.info-link, strong {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+main a:hover {
+	color: #F5F5F5;
+	text-decoration: underline solid;
+}
+
+main p {
+	line-height: 1.6;
+	margin-bottom: 16px;
+}
+
+main h2, main h3 {
+	margin-top: 24px;
+	margin-bottom: 12px;
+	text-align: center;
 }
 
 .logo.header {
@@ -202,12 +226,30 @@ main a {
 .fake-company {
 	font-weight: bold;
 	font-size: 40px;
-	color: #FFFFFF;
+	color: #F5F5F5;
 	text-transform: uppercase;
-	letter-spacing: 1px;
-	margin-top: 30px;
-	text-shadow: none;
-	margin-right: 15px;
+	letter-spacing: 2px;
+	margin: 0;
+	text-shadow: -4px 4px 0 rgba(200,200,200,0.5);
+	font-variant: small-caps;
+	
+}
+
+@keyframes glitch {
+	0% { transform: translate(0, 0);}
+	20% { transform: translate(0, 0);}
+	40% { transform: translate(0, 0);}
+	60% { transform: translate(0, 0);}
+	80% { transform: translate(0, -4px);}
+	100% { transform: translate(0, 0);}
+
+}
+
+.fake-company:hover {
+
+	animation: glitch 2s infinite;
+	display: inline-block;
+
 }
 
 .button.level {
@@ -219,4 +261,97 @@ main a {
 .button.level:hover {
 	background-color: #F4F4F4;
 	box-shadow: 0 6px 15px rgba(255,255,255,0.3);
+}
+
+.flag-text-input {
+	padding: 10px 15px;
+	font-size: 16px;
+	border: 2px solid #FFFFFF;
+	border-radius: 6px;
+	box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+	transition: all 0.2s ease;
+}
+
+.flag-text-input:focus {
+	outline: none;
+	border-color: #F5F5F5;
+	box-shadow: 0 0 8px rgba(122, 199, 79, 0.4);
+}
+
+.flag-text {
+	font-weight: bold;
+	background-color: rgba(122, 199, 79, 0.1);
+	color: #2E8B57;
+	padding: 2px 5px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.lesson-img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 16px auto;
+
+}
+
+.login-box {
+	max-width: 400px;
+	margin: 32px auto;
+	padding: 32px;
+	background-color: #F0ECF5;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+	border-radius: 10px;
+}
+
+.login-box input[type="text"] {
+	width: 100%;
+	padding: 14px;
+	margin: 8px 0 16px 0;
+	border: 1px solid #CCC;
+	border-radius: 6px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.login-box button {
+	width: 100%;
+	padding: 14px;
+	background-color: #310A31;
+	color: #F5F5F5;
+	border: none;
+	border-radius: 6px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.login-box button:hover {
+	background-color: #4B1574;
+}
+
+.login-box label {
+	display: block;
+	margin-bottom: 0;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.error {
+	color: #C0392B;
+	font-weight: bold;
+	margin-top: 8px;
+	display: block;
+	text-align: center;
+}
+
+.fluff-text {
+	max-width: 100%;
+	margin: 32px auto;
+	padding: 24px;
+	background-color: #F5F5F5;
+	border-left: 6px solid #310A31;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	line-height: 1.6;
 }

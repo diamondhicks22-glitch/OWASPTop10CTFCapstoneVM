@@ -15,17 +15,23 @@ elseif (!isset($_SESSION['level_transition'])) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>OWASP-Inspired CTF Site</title>
+	<title>Web Application Vulnerability Lab</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/secure_assets/sitecss.css">
+	<link rel="icon" href="/image_assets/Logos/WAVLCapstoneBlackIcon.svg" sizes="32x32">
 </head>
 
 <body>
-	<header>
-		<h1>OWASP-Inspired CTF Site</h1>
-
+	<header class="site-header">
+		<div class ="header-content">
+			<img src="/image_assets/Logos/WAVLCapstoneWhiteHeader.svg" alt="Web Application Vulnerability Lab" class="logo header">
+			<p class="warning">DEMO STATE | THERE MAY BE BUGS</p>
+		</div>
+		<div class="header-fade"></div>
 		<!--ADD NAV HERE-->
 	</header>
+
+
 	<main>
 	<h2>What?</h2>
 	<strong>Security Logging and Alerting Failures</strong>
@@ -45,14 +51,14 @@ elseif (!isset($_SESSION['level_transition'])) {
 	
 	<h2>How?</h2>
 	<p>In this lab, the example includes a simple case of "echo"-ing the error alongside an error that gives too much information.</p>
-	<img src="/../../image_assets/lesson_1/toomucherror.png">
-	<img src="/../../image_assets/lesson_1/errorecho.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_1/toomucherror.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_1/errorecho.png">
 	<p>A form of fix would making the error internal if specifications are needed, in this case error_log, and only displaying to the user
 	the needed information via the die() command.</p>
-	<img src="/../../image_assets/lesson_1/lesson1_fix.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_1/lesson1_fix.png">
 
 	<h2>Further information</h2>
-	<a href="https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/" target="_blank" rel='noopener noreferrer'>OWASP Security Logging and Alerting Failures</a>
+	<a class="info-link" href="https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/" target="_blank" rel='noopener noreferrer'>OWASP Security Logging and Alerting Failures</a>
 	<br>
 
 	<a href="../../index.php">Back to Main page</a>

@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../../secure_assets/.connect.php';
+session_start();
+if (!isset($_SESSION['landing_transition'])) {
+	header("Location: ../../index.php");
+	exit();
+}
+session_unset();
+session_destroy();
+session_start();
+$_SESSION['level_transition'] = true;
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +28,7 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 			<input type="hidden" name="level_id" value="0">
 			<input type="hidden" name= "level_folder" value= "levels/Intro">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="text" id="flag" name="flag" value="Enter Flag">
+			<input type="text" name="flag" class="flag-text-input" value="Enter Flag">
 			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
@@ -52,6 +61,6 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 		as well as a link to OWASP's own further technical explanation for vunerabilities should you wish to explore further</p>
 
 		<br>
-		<p>G1HF_U$3R</p>
+		<p class = 'flag-text'>G1HF_U$3R</p>
 
 </main>
