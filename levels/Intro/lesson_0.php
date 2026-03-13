@@ -6,7 +6,7 @@ if (isset($_SESSION['landing_transition'])) {
 	exit();
 }
 elseif (!isset($_SESSION['level_transition'])) {
-	header("Location: level1.php");
+	header("Location: intro.php");
 	exit();
 }
 ?>

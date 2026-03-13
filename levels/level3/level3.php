@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../../secure_assets/.connect.php';
+session_start();
+if (!isset($_SESSION['landing_transition']) && !isset($_SESSION['level_transition'])) {
+	header("Location: ../../index.php");
+	exit();
+}
+session_unset();
+session_destroy();
+session_start();
+$_SESSION['level_transition'] = true;
 ?>
 
 <!DOCTYPE html>
@@ -9,29 +18,35 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 	<title>OWASP-Inspired CTF Site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/../../secure_assets/sitecss.css">
+	<link rel="icon" href="/image_assets/Logos/WAVLCapstoneBlackIcon.svg" sizes="32x32">
 </head>
 
 <body>
-	<header>
-		<!--ADD NAV HERE-->
+	<header class= "company-header">
+		<span class="fake-company">Securissima Company</span>
 		<form method="POST" action="/../../secure_assets/flag_check.php">
 			<input type="hidden" name="level_id" value="3">
 			<input type="hidden" name= "level_folder" value= "levels/level3">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="text" id="flag" name="flag" value="Enter Flag">
-			<button type="submit">Submit Flag</button>
+			<input type="text" name="flag" class="flag-text-input" placeholder="Enter Flag">
+			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
 
+
+
 	<main>
-		<h1>Securissima Company</h1>
+		<div class ="fluff-text">
+
+
 
 		<p>Securissima focuses on providing our clients with the most up-to-date and secure information to better secure their customers.
 		In the age where technology is everything, securing your assets from attackers and threats becomes the up-most-priority. We provide 
 		pen-testing, consultations, framework and policy reviews, and much more. </p>
 		
 		<br>
-		<p>For a quote please enter your number below.</p>
+		<p>For a quote please enter server or system amount below.</p>
+		</div>
 		
 			<?php
 				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,9 +65,9 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 				}
 			?>
 
-		<div class="log-in_box">
+		<div class="login-box">
 			<form method="POST" action="level3.php">
-				<p>Contact</p><br>
+				<label>Servers/Computer Amount</label>
 				<input type="text" name="number">
 				<br>
 				<button type="submit">Submit</button>

@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../../secure_assets/.connect.php';
+session_start();
+if (!isset($_SESSION['landing_transition']) && !isset($_SESSION['level_transition'])) {
+	header("Location: ../../index.php");
+	exit();
+}
+session_unset();
+session_destroy();
+session_start();
+$_SESSION['level_transition'] = true;
 ?>
 
 <!DOCTYPE html>
@@ -9,23 +18,25 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 	<title>OWASP-Inspired CTF Site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/../../secure_assets/sitecss.css">
+	<link rel="icon" href="/image_assets/Logos/WAVLCapstoneBlackIcon.svg" sizes="32x32">
 </head>
 
 <body>
-	<header>
-		<!--ADD NAV HERE-->
+	<header class= "company-header">
+		<span class="fake-company">Securissima Company</span>
 		<form method="POST" action="/../../secure_assets/flag_check.php">
 			<input type="hidden" name="level_id" value="4">
 			<input type="hidden" name= "level_folder" value= "levels/level4">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="text" id="flag" name="flag" value="Enter Flag">
-			<button type="submit">Submit Flag</button>
+			<input type="text" name="flag" class="flag-text-input" placeholder="Enter Flag">
+			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
 
-	<main>
-		<h1>Securissima Company</h1>
 
+
+	<main>
+		<div class ="fluff-text">
 		<p>Securissima focuses on providing our clients with the most up-to-date and secure information to better secure their customers.
 		In the age where technology is everything, securing your assets from attackers and threats becomes the up-most-priority. We provide 
 		pen-testing, consultations, framework and policy reviews, and much more. </p>
@@ -33,13 +44,13 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 		<br>
 		<p>To access our services, please log-in below.</p>
 		<p>NOTICE: Due to maintenance, we are currently not accepting new clients. We hope to be able to take more very soon!</p>
-
-		<div class="log-in_box">
+		</div>
+		<div class="login-box">
 			<form>
-				<p>Username</p><br>
+				<label>Username</label>
 				<input type="text" name="username">
 				<br>
-				<p>Password</p><br>
+				<label>Password</label>
 				<input type="text" name="password">
 				<br>
 				<button type="submit">Log in</button>

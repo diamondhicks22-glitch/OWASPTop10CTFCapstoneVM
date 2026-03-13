@@ -28,7 +28,7 @@ $_SESSION['level_transition'] = true;
 			<input type="hidden" name="level_id" value="1">
 			<input type="hidden" name= "level_folder" value= "levels/level1">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="text" name="flag" class="flag-text-input" value="Enter Flag">
+			<input type="text" name="flag" class="flag-text-input" placeholder="Enter Flag">
 			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>

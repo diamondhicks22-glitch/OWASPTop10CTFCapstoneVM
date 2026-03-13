@@ -1,5 +1,14 @@
 <?php
 require_once __DIR__ . '/../../secure_assets/.connect.php';
+session_start();
+if (!isset($_SESSION['landing_transition']) && !isset($_SESSION['level_transition'])) {
+	header("Location: ../../index.php");
+	exit();
+}
+session_unset();
+session_destroy();
+session_start();
+$_SESSION['level_transition'] = true;
 ?>
 
 <!DOCTYPE html>
@@ -9,33 +18,39 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 	<title>OWASP-Inspired CTF Site</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/../../secure_assets/sitecss.css">
+	<link rel="icon" href="/image_assets/Logos/WAVLCapstoneBlackIcon.svg" sizes="32x32">
 </head>
 
 <body>
-	<header>
-		<!--ADD NAV HERE-->
+	<header class= "company-header">
+		<span class="fake-company">Securissima Company</span>
 		<form method="POST" action="/../../secure_assets/flag_check.php">
 			<input type="hidden" name="level_id" value="5">
 			<input type="hidden" name= "level_folder" value= "levels/level5">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="text" id="flag" name="flag" value="Enter Flag">
-			<button type="submit">Submit Flag</button>
+			<input type="text" name="flag" class="flag-text-input" placeholder="Enter Flag">
+			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
 
+
+
 	<main>
-		<h1>Securissima Company</h1>
+		<div class ="fluff-text">
+
+
 
 		<p>Securissima focuses on providing our clients with the most up-to-date and secure information to better secure their customers.
 		In the age where technology is everything, securing your assets from attackers and threats becomes the up-most-priority. We provide 
 		pen-testing, consultations, framework and policy reviews, and much more. </p>
 		
 		<br>
-		<p>To access our services, please log-in below.</p>
-		<p>NOTICE: Due to maintenance, we are currently not accepting new clients. We hope to be able to take more very soon!</p>
+		<p>For a limited time, we are offering free quotes below! Feel free to enter a number of devices within your company. Afterwards,
+		if you are interested, call us at +X (XXX) XXX-XXXX.</p>
 		
 			<?php
-					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+						$response = '';
 						$quote = 0;
 						$quantity = $_POST['quantity'] ?? '';
 
@@ -44,26 +59,29 @@ require_once __DIR__ . '/../../secure_assets/.connect.php';
 								throw new Exception("Enter a value");
 							}
 							elseif (!ctype_digit($quantity)) {
-								throw new Exception("Invalid quantity.");
+								throw new Exception("Invalid quantity. \${Try_c@t3h}");
 							}
 							elseif ((int)$quantity === 0) {
-								throw new Exception("Invalid quantity. \${Try_c@t3h}");
+								throw new Exception("Enter a number");
 							}
 
 							else {
 								$quote = $quantity * 1000;
-								echo '<p>Your quote is: $' . $quote . "</p>";
+								$response = '<p>Your quote is: $' . $quote . "</p>";
 						}
 						}
 						catch (Exception $e) {
-							echo "<p>Exception caught: ". $e->getMessage() . "</p>";
+							$response = "<label class='error'>Exception caught: ". $e->getMessage() . "</label>";
 						}
 					}
 			?>
-
-		<div class="quote_box">
+		</div>
+		<div class="quote-box">
 			<form method="POST" action="level5.php">
-				<p>How many servers/cameras in your company?</p><br>
+				<label>How many servers/cameras in your company?</label><br>
 				<input type="text" name="quantity">
 			</form>
+			<?php
+			echo $response;
+			?>
 		</div>
