@@ -40,7 +40,14 @@ if (!isset($_SESSION['level_transition'])) {
 						}
 						else {
 							while ($row = $result->fetch_assoc()) {
+
+								if ($row['username'] === "admin") {
+									$response = "<p>" . $row['username'] . " | <span class='flag-text'>" . $row['pass'] . "</span></p>";
+								}
+								else{
 								$response = "<p>" . $row['username'] . " | " . $row['pass'] . "</p>";
+
+								}
 							}
 						}
 					}

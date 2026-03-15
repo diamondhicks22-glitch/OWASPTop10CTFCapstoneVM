@@ -59,7 +59,7 @@ $_SESSION['level_transition'] = true;
 								throw new Exception("Enter a value");
 							}
 							elseif (!ctype_digit($quantity)) {
-								throw new Exception("Invalid quantity. \${Try_c@t3h}");
+								throw new Exception("Invalid quantity. ERROR: <label class='flag-text'>\${Try_c@t3h}</label>");
 							}
 							elseif ((int)$quantity === 0) {
 								throw new Exception("Enter a number");

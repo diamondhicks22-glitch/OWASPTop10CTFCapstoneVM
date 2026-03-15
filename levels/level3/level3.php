@@ -52,15 +52,18 @@ $_SESSION['level_transition'] = true;
 				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$number = trim($_POST['number'] ?? '');
 					$flag_found = '';
+					$flag = '';
 					if (preg_match('/\D/', $number)) {
 						$errormessage = "<p>ERROR: Input contains invalid characters</p>";
-						$flag_found = "<p>Code: S@n1tiz3</p>";
+						$flag_found = "<p>Code: ";
+						$flag = "<span class='flag-text'>S@n1tiz3</span></p>";
+
 					}
 					elseif (empty($number)) {
 						$errormessage = "<p>Please enter a value</p>";
 					}
 					else {
-						$errormessage = "";
+						$errormessage = 1000 * $number;
 					}
 				}
 			?>
@@ -74,10 +77,16 @@ $_SESSION['level_transition'] = true;
 			</form>
 			<?php
 				echo "<div class = 'error'>";
-				echo $errormessage;
+				if  (is_int($errormessage)) {
+					echo "$$errormessage";
+				}
+				else {
+					echo $errormessage;
+				}
 				if (!empty($flag_found)) {
 					echo $flag_found;
+					echo $flag;
 				}
-				echo "</div>";
+				echo "</div>";i
 			?>
 		</div>

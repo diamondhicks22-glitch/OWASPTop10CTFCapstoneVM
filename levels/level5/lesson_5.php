@@ -6,7 +6,7 @@ if (isset($_SESSION['landing_transition'])) {
 	exit();
 }
 elseif (!isset($_SESSION['level_transition'])) {
-	header("Location: level2.php");
+	header("Location: level5.php");
 	exit();
 }
 ?>
@@ -34,22 +34,27 @@ elseif (!isset($_SESSION['level_transition'])) {
 
 	<main>
 	<h2>What?</h2>
-	<strong>TODO</strong>
-	<p>TODO</p>
+	<strong>Mishandling of Exceptional Conditions</strong>
+	<p>An applications lack of ability to properly prevent, detect, and/or respond to improbable situations. This most commonly ends in an application
+	crashing or exposure and exploitation of other vulnerabilities.</p>
 	<br>
 	
 	<h2>Why?</h2>
-	<p>TODO</p><br>
+	<p>Similar to Software or Data Integrity Failures, an application crashing or failing due to being unprepared is an issue. As well as the
+	application being able to catch the errors, but expose different vulnerabilities or information. Giving away information that could
+	eventually lead to a breach and/or compromise.</p><br>
 	
 	<h2>How?</h2>
-	<p>In this lab, TODO</p>
+	<p>The application for this level does catch the error properly. The problem arises where in this case, it follows with
+	giving the user too much information.</p>
 	<img class="lesson-img" src="/../../image_assets/lesson_1/TODO">
 	<img class="lesson-img" src="/../../image_assets/lesson_2/TODO">
-	<p>TODO</p>
+	<p>A simple solution would be sanitizing the input and giving a generic error for the user. Giving custom error messages
+	is essential as system error messages alone can tell the user software or the backend system that is being used.</p>
 	<img class="lesson-img" src="/../../image_assets/lesson_2/TODO">
 
 	<h2>Further information</h2>
-	<a class="info-link" href="https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/" target="_blank" rel='noopener noreferrer'> CHANGE LINK</a>
+	<a class="info-link" href="https://owasp.org/Top10/2025/A10_2025-Mishandling_of_Exceptional_Conditions/" target="_blank" rel='noopener noreferrer'>OWASP Mishandling of Exceptional Conditions</a>
 	<br>
 
 	<a href="../../index.php">Back to Main page</a>
