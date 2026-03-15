@@ -47,11 +47,11 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<h2>How?</h2>
 	<p>In this lab, the configuration is from a mix of issues. The most obvious one being the lack of authentication for the system from the user.
 	This is normally mitigated by having the user verify in some shape or form, e.g email verification with a OTP (One Time Passcode).</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_4/TODO">
-	<img class="lesson-img" src="/../../image_assets/lesson_4/TODO">
+	<img class="lesson-img" src="/../../image_assets/lesson_4/badqueryloop.png">
 	<p>An easy and more managable way for smaller business who may not have the resources involves requiring the user to contact the company personally or
 	setting up a security question system which would be stored and encrypted within a database.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_4/TODO">
+	<img class="lesson-img" src="/../../image_assets/lesson_4/properauth.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_4/redirectauth.png">
 
 	<h2>Further information</h2>
 	<a class="info-link" href="https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/" target="_blank" rel='noopener noreferrer'>OWASP Security Misconfiguration</a>

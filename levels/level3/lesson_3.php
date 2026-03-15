@@ -47,10 +47,10 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<h2>How?</h2>
 	<p>This challenge focused on the lack of input sanitization and checking. In this case, the input required an int, but if a string or
 	character is entered, then the input fails. Alongside the echo of the error giving it to the user.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_3/TODO">
-	<img class="lesson-img" src="/../../image_assets/lesson_3/TODO">
+	<img class="lesson-img" src="/../../image_assets/lesson_3/invalidandtoomuch.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_3/badecho.png">
 	<p>PHP has a check that solves this issue, this can then be modified to add an error log or just not respond to the user and await a new input.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_3/TODO">
+	<img class="lesson-img" src="/../../image_assets/lesson_3/fixedlogs.png">
 
 	<h2>Further information</h2>
 	<a class="info-link" href="https://owasp.org/Top10/2025/A08_2025-Software_or_Data_Integrity_Failures/" target="_blank" rel='noopener noreferrer'>OWASP Software or Data Integrity Failures</a>

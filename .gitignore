@@ -3,3 +3,4 @@ git-pull.sh
 .git_token
 .db_connect.php
 .connect.php
+.htaccess

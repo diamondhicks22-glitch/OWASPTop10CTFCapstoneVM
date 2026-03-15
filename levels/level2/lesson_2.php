@@ -48,11 +48,10 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<h2>How?</h2>
 	<p>The vulnerability demonstrated in this lab is a form of URL manipulation. An attacker can modify a URL easily with visible parameters.
 	In this case, view=guest to reach the guest portal can be modified to view=admin.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_2/TODO">
-	<img class="lesson-img" src="/../../image_assets/lesson_2/TODO">
+	<img class="lesson-img" src="/../../image_assets/lesson_2/nocheck.png">
 	<p>For PHP files, the site pages within this lab, a possible fix is with sessions if not relying on logging in. Starting and giving each 
 	session a title and checking if the session is present then using the header() function to redirect the user if the condition is not met.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_2/TODO">
+	<img class="lesson-img" src="/../../image_assets/lesson_2/sessionfix.png">
 
 	<h2>Further information</h2>
 	<a class="info-link" href="https://owasp.org/Top10/2025/A06_2025-Insecure_Design/" target="_blank" rel='noopener noreferrer'>OWASP Insecure Design</a>
