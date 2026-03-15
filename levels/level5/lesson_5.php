@@ -47,10 +47,10 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<h2>How?</h2>
 	<p>The application for this level does catch the error properly. The problem arises where in this case, it follows with
 	giving the user too much information.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_1/tmi.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_5/tmi.png">
 	<p>A simple solution would be sanitizing the input and giving a generic error for the user. Giving custom error messages
 	is essential as system error messages alone can tell the user software or the backend system that is being used.</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_2/simpleresponse.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_5/simpleresponse.png">
 
 	<h2>Further information</h2>
 	<a class="info-link" href="https://owasp.org/Top10/2025/A10_2025-Mishandling_of_Exceptional_Conditions/" target="_blank" rel='noopener noreferrer'>OWASP Mishandling of Exceptional Conditions</a>
