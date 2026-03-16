@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/.connect.php";
-
+header('Content-Type: application/json');
 
 $level = isset($_POST['level_id']) ? intval($_POST['level_id']) : -1;
 $flag = isset($_POST['flag']) ? trim($_POST['flag']) : '';
@@ -29,17 +29,25 @@ if ($flag === $correct) {
 	$update_query = $connection->prepare("UPDATE 2025_levels SET completed = TRUE WHERE ID = ?");
 	$update_query->bind_param("i", $level);
 	$update_query->execute();
-	header("Location: /../" . $file_loc . "/" . $education_page . "");
-	exit;
+	echo json_encode([
+		"status" => "success",
+		"redirect" => "lesson_" . $level . ".php"
+	]);
 }
 else {
 	if ($file_loc === '/../index.php') {
-	header("Location: $file_loc");
-	exit;
+	echo json_encode([
+		"status" => "jump",
+		"redirect" => "/.." . $file_loc . ""
+	]);
+
 	}
 	else{
-		header("Location: $back");
-		exit;
+		echo json_encode([
+			"status" => "fail",
+			"message" => "Incorrect flag"
+	]);
+
 	}
 }
 ?>

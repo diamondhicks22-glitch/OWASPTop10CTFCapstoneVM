@@ -31,47 +31,28 @@ $_SESSION['landing_transition'] = true;
 	$query->execute();
 	$result = $query->get_result();
 	while ($row = $result->fetch_assoc()) {
-		if ($row['completed']) {
-			if ($row['ID'] === 0) {
-				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock intro completed'>";
-				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
-				echo "</a>";
+		$class = "levelblock";
+		if ($row['ID'] == 0) {
+			$class .= " intro";
+		}
+		if ($row['ID'] == 10) {
+			$class .= " final";
+		}
+		if ($row['completed'] == 1) {
+			$class .= " completed";
+		}
 
-			}
-			elseif ($row['ID'] === 10) {
-				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock final completed'>";
-				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
-				echo "</a>";
-			}
-			else{
-				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock completed'>";
-				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
-				echo "</a>";
-			}
-		}
-		else {
-			if ($row['ID'] === 0) {
-				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock intro'>";
-				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
-				echo "</a>";
-			}
-			elseif ($row['ID'] === 10) {
-				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock final'>";
-				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
-				echo "</a>";
-			}
-			else {
-				echo "<a href=" . htmlspecialchars($row['location']) . " class= 'levelblock'>";
-				echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
-				echo "</a>";
-			}
-		}
+		echo "<a href=" . htmlspecialchars($row['location']) . " class='$class' data-level='" . $row['ID'] . "'>";
+		echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+		echo "</a>";
+
+
+
+
 	}
 ?>
 </div>
-	<form method="POST" action="/landing_page/reset_current.php">
-	<button type="submit" class="button">Reset Progress</button>
-	</form>
+	<button type="submit" id="resetProgress" class="button reset">Reset Progress</button>
 
 <div class="coming-soon">	
 	<br><h2> Coming Soon (Working Level Titles)</h2>
@@ -81,5 +62,7 @@ $_SESSION['landing_transition'] = true;
 	<p class="nondev-levels">Are You You?</p>
 	<p class="nondev-levels">Injection Headache</p>
 </div>
+<script src="/landing_page/resetProgress.js"></script>
+<script src="/landing_page/levellocks.js"></script>
 </body>
 </html>

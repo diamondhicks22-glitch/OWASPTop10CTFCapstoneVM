@@ -24,7 +24,7 @@ $_SESSION['level_transition'] = true;
 <body>
 	<header class= "company-header">
 		<span class="fake-company">Securissima Company</span>
-		<form method="POST" action="/../../secure_assets/flag_check.php">
+		<form class="flag-form">
 			<input type="hidden" name="level_id" value="3">
 			<input type="hidden" name= "level_folder" value= "levels/level3">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -32,10 +32,25 @@ $_SESSION['level_transition'] = true;
 			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
+<div class="flag-error"></div>
 
 
+	
+	<main class= "challenge-content">
 
-	<main>
+		<div class="hint-section" data-level="3">
+		
+		<button class="button hint" data-hint="1">Hint 1</button>
+		<div class= "hint-text" id= "hint-1"></div>
+
+		<button class="button hint" data-hint="2">Hint 2</button>
+		<div class= "hint-text" id= "hint-2"></div>
+
+		<button class="button hint" data-hint="3">Hint 3</button>
+		<div class= "hint-text" id= "hint-3"></div>
+		</div>
+
+		<div "second-section">
 		<div class ="fluff-text">
 
 
@@ -87,6 +102,12 @@ $_SESSION['level_transition'] = true;
 					echo $flag_found;
 					echo $flag;
 				}
-				echo "</div>";i
+				echo "</div>";
 			?>
 		</div>
+</div>
+<script src="/../../secure_assets/flag_check.js"></script>
+<script src="/../../secure_assets/hints.js"></script>
+
+</main>
+

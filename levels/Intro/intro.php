@@ -24,7 +24,7 @@ $_SESSION['level_transition'] = true;
 <body>
 	<header class= "company-header">
 		<span class="fake-company">Securissima Company</span>
-		<form method="POST" action="/../../secure_assets/flag_check.php">
+		<form class="flag-form">
 			<input type="hidden" name="level_id" value="0">
 			<input type="hidden" name= "level_folder" value= "levels/Intro">
 			<input type ="hidden" name="level_page" value="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -32,6 +32,7 @@ $_SESSION['level_transition'] = true;
 			<button type="submit" class="button level">Submit Flag</button>
 		</form> 
 	</header>
+<div class="flag-error"></div>
 
 	<main>
 
@@ -62,5 +63,5 @@ $_SESSION['level_transition'] = true;
 
 		<br>
 		<p class = 'flag-text'>G1HF_U$3R</p>
-
+<script src="/../../secure_assets/flag_check.js"></script>
 </main>
