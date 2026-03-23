@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
+function applyLocking() {
+
 	const levels = document.querySelectorAll(".levelblock");
 	console.log(levels);
 	const completed = [];
@@ -32,4 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 	}
 	});
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+	applyLocking();
 });
+
+document.getElementById("resetProgress").addEventListener("click", function() {
+	applyLocking();
+});
+

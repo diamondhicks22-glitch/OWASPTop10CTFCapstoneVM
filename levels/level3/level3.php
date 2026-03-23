@@ -69,9 +69,8 @@ $_SESSION['level_transition'] = true;
 					$flag_found = '';
 					$flag = '';
 					if (preg_match('/\D/', $number)) {
-						$errormessage = "<p>ERROR: Input contains invalid characters</p>";
-						$flag_found = "<p>Code: ";
-						$flag = "<span class='flag-text'>S@n1tiz3</span></p>";
+						header("Location: broken.php");
+						exit();
 
 					}
 					elseif (empty($number)) {

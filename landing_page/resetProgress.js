@@ -8,10 +8,25 @@ document.getElementById("resetProgress").addEventListener("click", function() {
 	.then(response => response.text())
 	.then(data => {
 		if (data.trim() === "success") {
-			document.querySelectorAll(".levelblock.completed")
-				.forEach(level => level.classList.remove("completed"));
-		}
-		else {
+			document.querySelectorAll(".levelblock").forEach(level => {
+				const id = parseInt(level.dataset.level);
+
+				level.classList.remove("completed");
+
+				if (id != 0) {
+					level.classList.add("locked");
+
+					level.onclick = function(e) {
+						e.preventDefault();
+						alert("This level is locked.");
+					};
+				} else {
+					
+					level.classList.remove("locked");
+					level.onclick = null;
+				}
+		});
+		} else {
 			alert("Reset failed");
 		}
 	});
