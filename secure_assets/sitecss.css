@@ -449,3 +449,33 @@ main h2, main h3 {
 	font-weight: bold;
 	font-size: 15px;
 }
+
+.adminToggle {
+	opacity: 0;
+	cursor: pointer;
+}
+
+.statusForm {
+	display: none;
+}
+
+.statusForm.show {
+	display: block;
+}
+
+.flag-text-input.level, .button.errorCode {
+	display: none;
+}
+
+.flag-text-input.level.show, .button.errorCode.show {
+	display: block;
+}
+
+.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.active {
+	cursor: pointer;
+}
