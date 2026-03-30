@@ -56,8 +56,6 @@ $_SESSION['landing_transition'] = true;
 
 <div class="coming-soon">	
 	<br><h2> Coming Soon (Working Level Titles)</h2>
-	<p class="nondev-levels">I Have Authority</p>
-	<p class="nondev-levels">Plain and What-text?</p>
 	<p class="nondev-levels">Trusted Supply</p>
 	<p class="nondev-levels">Are You You?</p>
 	<p class="nondev-levels">Injection Headache</p>
