@@ -313,6 +313,10 @@ main h2, main h3 {
 	transition: all 0.2s ease;
 }
 
+.flag-text-input.large {
+	padding: 30px 15px;
+}
+
 .flag-text-input:focus {
 	outline: none;
 	border-color: #F5F5F5;
@@ -402,6 +406,11 @@ main h2, main h3 {
 	border-radius: 8px;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 	line-height: 1.6;
+}
+
+.fluff-text.modify {
+	display: grid;
+	place-items: left;
 }
 
 .fluff-text a:hover {
