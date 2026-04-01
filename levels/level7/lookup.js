@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function(e) {
+
+	document.getElementById("output").classList.add("hidden");
+
+});
+
 document.getElementById("lookup").addEventListener("click", function(e) {
 	e.preventDefault();
 
@@ -16,15 +22,18 @@ document.getElementById("lookup").addEventListener("click", function(e) {
 		output.innerHTML = "";
 
 		if (data.status === "success") {
+			output.classList.remove("hidden");
 			data.data.forEach(row => {
 				output.innerHTML += Object.values(row).join(" | ") + "<br>";
 			});
 		}
 		else if (data.status === "not_found") {
+			output.classList.remove("hidden");
 			output.innerHTML = "No account found.";
 		}
 		else {
 			data.data.forEach(row => {
+				output.classList.remove("hidden");
 				output.innerHTML += Object.values(row).join(" | ") + "<br>";
 			});
 

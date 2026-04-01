@@ -488,3 +488,7 @@ main h2, main h3 {
 .active {
 	cursor: pointer;
 }
+
+.hidden {
+	display: none;
+}

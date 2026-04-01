@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function(e) {
+
+	document.getElementById("output").classList.add("hidden");
+
+});
+
 document.getElementById("submit").addEventListener("click", function(e) {
 	e.preventDefault();
 
@@ -14,6 +20,7 @@ document.getElementById("submit").addEventListener("click", function(e) {
 	.then(res => res.json())
 	.then(data => {
 	const output = document.getElementById("output");
+		output.classList.remove("hidden");
 		output.innerHTML = data.data;
 	});
 });

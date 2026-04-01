@@ -52,14 +52,9 @@ $_SESSION['landing_transition'] = true;
 	}
 ?>
 </div>
+<br>
 	<button type="submit" id="resetProgress" class="button reset">Reset Progress</button>
 
-<div class="coming-soon">	
-	<br><h2> Coming Soon (Working Level Titles)</h2>
-	<p class="nondev-levels">Trusted Supply</p>
-	<p class="nondev-levels">Are You You?</p>
-	<p class="nondev-levels">Injection Headache</p>
-</div>
 <script src="/landing_page/resetProgress.js"></script>
 <script src="/landing_page/levellocks.js"></script>
 </body>
