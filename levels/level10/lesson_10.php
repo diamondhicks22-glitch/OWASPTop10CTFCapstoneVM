@@ -6,7 +6,7 @@ if (isset($_SESSION['landing_transition'])) {
 	exit();
 }
 elseif (!isset($_SESSION['level_transition'])) {
-	header("Location: level5.php");
+	header("Location: level10.php");
 	exit();
 }
 ?>
@@ -34,17 +34,23 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<main>
 	<h2>What?</h2>
 	<strong>Injection</strong>
-	<p>TODO</p>
+	<p>When an application allows untrusted user input to be sent and the input executes as part of the programs code or
+        as part of an attached aspects code. This includes Cross Site Scripting (XSS) as well as SQL injections.</p>
 	<br>
 	
 	<h2>Why?</h2>
-	<p>TODO</p><br>
+	<p>Injection itself is not an extremely difficult attack, but it is one normally from more sophisticated attackers.
+        If an attacker can figure out how a command is ran, they can figure out the entire database layout and even credentials
+        to that database, for this program: SQL. The database could contain employee and customer information, sensitive
+        information from the business itself, or more that an attacker could use for financial gain or other ideals.</p><br>
 	
 	<h2>How?</h2>
-	<p>TODO</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_10/TODO">
-	<p>TODO</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_10/TODO">
+	<p>Many injection attacks come from a developer assuming a user will not try to input invalid data and/or use only simple
+        checks to prevent it. An injection uses SQL or other language specifics to target a system at its backend. In this case,
+        part of the flaw is by only using query and not binding a param instead.</p>
+	<img class="lesson-img" src="/../../image_assets/lesson_10/use_prepare.png">
+	<p>Binding a param and using a prepare() statement treats input strictly as data, not as part of the query string.
+        Other checks must still be used to ensure proper handling of input as it is not a perfect solution and can still be broken.</p>
 
 	<h2>Further information</h2>
 	<a class="info-link" href="https://owasp.org/Top10/2025/A05_2025-Injection/" target="_blank" rel='noopener noreferrer'>OWASP Injection</a>

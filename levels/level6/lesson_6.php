@@ -6,7 +6,7 @@ if (isset($_SESSION['landing_transition'])) {
 	exit();
 }
 elseif (!isset($_SESSION['level_transition'])) {
-	header("Location: level5.php");
+	header("Location: level6.php");
 	exit();
 }
 ?>
@@ -35,17 +35,22 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<main>
 	<h2>What?</h2>
 	<strong>Broken Access Control</strong>
-	<p>TODO</p>
+	<p>Broken access control is when a user is able to act outside of their intended/permitted permissions. This could be
+        just accessing resources not meant for them or modifying aspects not they are not supposed to.</p>
 	<br>
 	
 	<h2>Why?</h2>
-	<p>TODO</p><br>
+	<p>This vulnerability is the top of the list with OWASP finding every web application having some form of it. This contains
+        unauthorized information access and disclosure, data modification, creation, and deletion.</p><br>
 	
 	<h2>How?</h2>
-	<p>TODO</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_6/TODO">
-	<p>TODO</p>
-	<img class="lesson-img" src="/../../image_assets/lesson_6/TODO">
+	<p>In this level, the vulnerability arises from the program assuming the user is an administrator with no checks.</p>
+	<img class="lesson-img" src="/../../image_assets/lesson_6/no_checks.png">
+	<p>Most programs would run a backend program like the function below that would run a verification program. Then
+        depending on the result, if success make the change requested otherwise deny the user. Best practice is to follow
+        Zero Trust principles or "Just in Time" permissions.</p>
+	<img class="lesson-img" src="/../../image_assets/lesson_6/function.png">
+	<img class="lesson-img" src="/../../image_assets/lesson_6/fix_check.png">
 
 	<h2>Further information</h2>
 	<a class="info-link" href="https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/" target="_blank" rel='noopener noreferrer'>OWASP Broken Access Control</a>
