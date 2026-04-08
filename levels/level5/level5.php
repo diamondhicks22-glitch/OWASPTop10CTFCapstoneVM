@@ -61,46 +61,20 @@ $_SESSION['level_transition'] = true;
 		<p>For a limited time, we are offering free quotes below! Feel free to enter a number of devices within your company. Afterwards,
 		if you are interested, call us at +X (XXX) XXX-XXXX.</p>
 		
-			<?php
-						if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-						$response = '';
-						$quote = 0;
-						$quantity = $_POST['quantity'] ?? '';
-
-						try {
-							if ($quantity === '') {
-								throw new Exception("Enter a value");
-							}
-							elseif (!ctype_digit($quantity)) {
-								throw new Exception("Invalid quantity. ERROR: <label class='flag-text'>\${Try_c@t3h}</label>");
-							}
-							elseif ((int)$quantity === 0) {
-								throw new Exception("Enter a number");
-							}
-
-							else {
-								$quote = $quantity * 1000;
-								$response = '<p>Your quote is: $' . $quote . "</p>";
-						}
-						}
-						catch (Exception $e) {
-							$response = "<label class='error'>Exception caught: ". $e->getMessage() . "</label>";
-						}
-					}
-			?>
 		</div>
 		<div class="quote-box">
-			<form method="POST" action="level5.php">
+			<form id="quantityForm">
 				<label>How many servers/cameras in your company?</label><br>
-				<input type="text" name="quantity">
+				<input type="text" id='quantity' name="quantity">
 			</form>
-			<?php
-			echo $response;
-			?>
+			<label id='error' class='error'></label>
+
+			<button id="quantitySubmit" class="button" type="submit">Submit</button>
 		</div>
 </div>
 <script src="/../../secure_assets/flag_check.js"></script>
 <script src="/../../secure_assets/hints.js"></script>
+<script src="error.js"></script>
 
 </main>
 

@@ -25,7 +25,7 @@ elseif (!isset($_SESSION['level_transition'])) {
 	<header class="site-header">
 		<div class ="header-content">
 			<img src="/image_assets/Logos/WAVLCapstoneWhiteHeader.svg" alt="Web Application Vulnerability Lab" class="logo header">
-			<p class="warning">DEMO STATE | THERE MAY BE BUGS</p>
+			<p class="warning">PROTOTYPE STATE | THERE MAY BE BUGS</p>
 		</div>
 		<div class="header-fade"></div>
 		<!--ADD NAV HERE-->
